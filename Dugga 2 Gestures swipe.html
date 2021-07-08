@@ -3,6 +3,52 @@
 <head>
     <title>FrödingAppenTouch</title>
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ########################################################################--------CSS styling--------######################################################################## -->
+    <style>
+      .button {
+        background-color: #FED;
+        color: #000;
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 10px;
+        text-align: center;
+      }
+      .tooltipAnchor {
+        position:absolute;
+      }
+      .tooltip { /* hide and position tooltip */
+        position:absolute;
+        bottom:20px;
+        left:0px;
+        width:200px;
+        height:85px;
+        background-color:#3e3e40;
+        color:white;
+        border-radius:3px;
+        opacity:0;
+        overflow: hidden;
+        padding:2px;
+      }
+      #pic1{background:#fed;left:0%;}
+      #pic2{background:#def;}
+      #pic3{background:#fde;}
+
+        .picture{position:fixed;left:100%;top:0%;width:100%;height:100%;z-index:500;}
+
+        .clicker{position:absolute;left:0px;width:100%;top:35%;height:30%;z-index:600;border:1px dotted orange;display:flex;justify-content:space-between;align-items:center;}
+        .leftclicker{font-size:160px;}
+        .rightclicker{font-size:160px;}
+
+        @keyframes inleft {0% { left: -100%; } 100% { left: 0%;} }
+        @keyframes inright {0% { left: 100%; } 100% { left: 0%;} }
+        @keyframes outleft {0% { left: 0%; } 100% { left: -100%;} }
+        @keyframes outright {0% { left: 0%; } 100% { left: 100%;} }
+    </style>
+
+        <!-- ########################################################################--------Liberary imports--------######################################################################## -->
+
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -115,49 +161,6 @@
           hammertime.on("swipeleft", function(event) { swipe(1); });
       }
     </script>
-
-    <!-- ########################################################################--------CSS styling--------######################################################################## -->
-    <style>
-      .button {
-        background-color: #FED;
-        color: #000;
-        width: 100px;
-        height: 30px;
-        line-height: 30px;
-        border-radius: 10px;
-        text-align: center;
-      }
-      .tooltipAnchor {
-        position:absolute;
-      }
-      .tooltip { /* hide and position tooltip */
-        position:absolute;
-        bottom:20px;
-        left:0px;
-        width:200px;
-        height:85px;
-        background-color:#3e3e40;
-        color:white;
-        border-radius:3px;
-        opacity:0;
-        overflow: hidden;
-        padding:2px;
-      }
-      #pic1{background:#fed;left:0%;}
-      #pic2{background:#def;}
-      #pic3{background:#fde;}
-
-        .picture{position:fixed;left:100%;top:0%;width:100%;height:100%;z-index:500;}
-
-        .clicker{position:absolute;left:0px;width:100%;top:35%;height:30%;z-index:600;border:1px dotted orange;display:flex;justify-content:space-between;align-items:center;}
-        .leftclicker{font-size:160px;}
-        .rightclicker{font-size:160px;}
-
-        @keyframes inleft {0% { left: -100%; } 100% { left: 0%;} }
-        @keyframes inright {0% { left: 100%; } 100% { left: 0%;} }
-        @keyframes outleft {0% { left: 0%; } 100% { left: -100%;} }
-        @keyframes outright {0% { left: 0%; } 100% { left: 100%;} }
-    </style>
 </head>
 
     <!-- ########################################################################--------HTML body starts--------######################################################################## -->
