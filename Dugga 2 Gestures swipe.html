@@ -15,9 +15,11 @@
         border-radius: 10px;
         text-align: center;
       }
+
       .tooltipAnchor {
         position:absolute;
       }
+
       .tooltip { /* hide and position tooltip */
         position:absolute;
         bottom:20px;
@@ -31,35 +33,44 @@
         overflow: hidden;
         padding:2px;
       }
+
       #pic1{background:#fed;left:0%;}
       #pic2{background:#def;}
       #pic3{background:#fde;}
 
-        .picture{position:fixed;left:100%;top:0%;width:100%;height:100%;z-index:500;}
+      .display-3 {
+        font-size: 5px;
+      }
 
-        .clicker{position:absolute;left:0px;width:100%;top:35%;height:30%;z-index:600;border:1px dotted orange;display:flex;justify-content:space-between;align-items:center;}
-        .leftclicker{font-size:160px;}
-        .rightclicker{font-size:160px;}
+      .picture{position:fixed;left:100%;top:0%;width:100%;height:100%;z-index:500;}
 
-        @keyframes inleft {0% { left: -100%; } 100% { left: 0%;} }
-        @keyframes inright {0% { left: 100%; } 100% { left: 0%;} }
-        @keyframes outleft {0% { left: 0%; } 100% { left: -100%;} }
-        @keyframes outright {0% { left: 0%; } 100% { left: 100%;} }
+      .clicker{position:absolute;left:0px;width:100%;top:35%;height:30%;z-index:600;border:1px dotted orange;display:flex;justify-content:space-between;align-items:center;}
+      .leftclicker{font-size:160px;}
+      .rightclicker{font-size:160px;}
+
+      @keyframes inleft {0% { left: -100%; } 100% { left: 0%;} }
+      @keyframes inright {0% { left: 100%; } 100% { left: 0%;} }
+      @keyframes outleft {0% { left: 0%; } 100% { left: -100%;} }
+      @keyframes outright {0% { left: 0%; } 100% { left: 100%;} }
     </style>
 
         <!-- ########################################################################--------Liberary imports--------######################################################################## -->
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
+
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
+
     <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
     <script src="https://hammerjs.github.io/dist/hammer.js"></script>
 
@@ -204,9 +215,6 @@
           <li class="nav-item">
             <a class="nav-link" onclick="showPage(11);">Karusell</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="showPage(12);">Karusellen</a>
-          </li>
         </ul>
       </div>
     </nav>
@@ -325,9 +333,6 @@ bakom ängarnas gungande gräs."
           <li class="nav-item">
             <a class="nav-link" onclick="showPage(11);">Karusell</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="showPage(12);">Karusellen</a>
-          </li>
         </ul>
       </div>
     </nav>
@@ -429,9 +434,6 @@ bakom ängarnas gungande gräs."
           <li class="nav-item">
             <a class="nav-link" onclick="showPage(11);">Karusell</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="showPage(12);">Karusellen</a>
-          </li>
         </ul>
       </div>
     </nav>
@@ -492,9 +494,6 @@ Sidan är tyvärr inte fullständig. Så under tiden den utvecklas har du en mä
           </li>
           <li class="nav-item">
             <a class="nav-link" onclick="showPage(11);">Karusell</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="showPage(12);">Karusellen</a>
           </li>
         </ul>
       </div>
@@ -588,9 +587,6 @@ Sidan är tyvärr inte fullständig. Så under tiden den utvecklas har du en mä
           <li class="nav-item">
             <a class="nav-link" onclick="showPage(11);">Karusell</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="showPage(12);">Karusellen</a>
-          </li>
         </ul>
       </div>
     </nav>
@@ -678,9 +674,6 @@ av en visa med käck melodi."
           <li class="nav-item">
             <a class="nav-link" onclick="showPage(11);">Karusell</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="showPage(12);">Karusellen</a>
-          </li>
         </ul>
       </div>
     </nav>
@@ -741,9 +734,6 @@ Sidan är tyvärr inte fullständig. Så under tiden den utvecklas har du en mä
           </li>
           <li class="nav-item">
             <a class="nav-link" onclick="showPage(11);">Karusell</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="showPage(12);">Karusellen</a>
           </li>
         </ul>
       </div>
@@ -806,9 +796,6 @@ Sidan är tyvärr inte fullständig. Så under tiden den utvecklas har du en mä
           <li class="nav-item">
             <a class="nav-link" onclick="showPage(11);">Karusell</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="showPage(12);">Karusellen</a>
-          </li>
         </ul>
       </div>
     </nav>
@@ -870,9 +857,6 @@ Sidan är tyvärr inte fullständig. Så under tiden den utvecklas har du en mä
           <li class="nav-item">
             <a class="nav-link" onclick="showPage(11);">Karusell</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="showPage(12);">Karusellen</a>
-          </li>
         </ul>
       </div>
     </nav>
@@ -933,9 +917,6 @@ Sidan är tyvärr inte fullständig. Så under tiden den utvecklas har du en mä
           </li>
           <li class="nav-item">
             <a class="nav-link" onclick="showPage(11);">Karusell</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="showPage(12);">Karusellen</a>
           </li>
         </ul>
       </div>
@@ -1000,9 +981,6 @@ FrödingAppen är ett resultat av kursen mobilapplikationsdesign och är produce
           <li class="nav-item">
             <a class="nav-link" onclick="showPage(11);">Karusell</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="showPage(12);">Karusellen</a>
-          </li>
         </ul>
       </div>
     </nav>
@@ -1064,84 +1042,6 @@ FrödingAppen är ett resultat av kursen mobilapplikationsdesign och är produce
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id="page12" class="page">
-    <nav class="navbar navbar-dark bg-dark">
-      <a class="navbar-brand" onclick="showPage(1);">FrödingAppenTouch</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" onclick="showPage(1);">Gustav Fröding<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="showPage(2);">Galleri</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="showPage(3);">Betygsätt Fröding</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="showPage(4);">Länkar</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Diktsamling
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <button type="button" class="btn btn-dark dropdown-item" onclick="showPage(5);">Stänkt och flikar</button>
-              <button type="button" class="btn btn-dark dropdown-item" onclick="showPage(6);">Gitarr och dragharmonika</button>
-              <button type="button" class="btn btn-dark dropdown-item" onclick="showPage(7);">Nya dikter</button>
-              <button type="button" class="btn btn-dark dropdown-item" onclick="showPage(8);">Räggler å paschaser</button>
-              <button type="button" class="btn btn-dark dropdown-item active" onclick="showPage(9);">Gralstänk</button>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="showPage(10);">Om FrödingAppen</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="showPage(11);">Karusell</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" onclick="showPage(12);">Karusellen</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm">
-          <blockquote class="blockquote text-center">
-            <h1 class="display-3">Karusellen.</h1>
-          </blockquote>
-        </div>
-      </div>
-    </div>
-    <br>
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="karusell">
-            <div id="container" style="border:1px solid green;width:100%;height:100%;">
-              <div id="pageclicker" class="clicker">
-                <div class="leftclicker" onclick="swipe(-1)">&lt;</div>
-                <div class="rightclicker" onclick="swipe(1)">&gt;</div>
-              </div>
-              <div id="pic1" class="picture">
-                <h1>PAGE 1</h1>
-              </div>
-              <div id="pic2" class="picture">
-                <h1>PAGE 2</h1>
-              </div>
-              <div id="pic3" class="picture">
-                <h1>PAGE 3</h1>
-              </div>
-            </div>
           </div>
         </div>
       </div>
