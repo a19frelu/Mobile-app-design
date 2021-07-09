@@ -132,7 +132,6 @@
       hammertime.on("pressup", function(event) {
         element = document.getElementById("tooltip").style.opacity="0";
       });
-      console.log("init har körts")
     }
 
     // Swipe functionality
@@ -172,7 +171,6 @@
         var hammertime = Hammer(element);
         hammertime.on("swiperight", function(event) { swipe(-1) });
         hammertime.on("swipeleft", function(event) { swipe(1) });
-        console.log("initHammer har körts")
     }
 
   </script>
