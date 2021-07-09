@@ -57,120 +57,6 @@
       @keyframes outright {0% { left: 0%; } 100% { left: 100%;} }
     </style>
 
-        <!-- ########################################################################--------Liberary imports--------######################################################################## -->
-
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
-
-    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
-    <script src="https://hammerjs.github.io/dist/hammer.js"></script>
-
-
-        <!-- ########################################################################--------JavaScript functions--------######################################################################## -->
-    <script>
-        // Help function that shows page p and hides all other pages
-      function showPage(p) {
-          // Step 1 - Hide all pages
-          pageArr = document.getElementsByClassName("page");
-          for (let i = 0; i < pageArr.length; i++) {
-              let page = pageArr[i];
-              page.style.display = "none";
-          }
-          // Step 2 - Show the selected page
-          document.getElementById("page" + p).style.display = "block";
-      }
-
-      $(function () {
-      $('[data-toggle="popover"]').popover()
-      })
-
-      function tap(event) {
-          if (event.target.classList.contains("text-truncate")){
-            event.target.classList.remove("text-truncate");
-          }
-          else {
-          event.target.classList.add("text-truncate");
-        }
-      }
-      function init(){
-
-        // Get area where we listen for touch events
-        var toucharea = document.getElementById("stank");
-        // Init Hammer
-        var mc = new Hammer(toucharea);
-
-        // Listen for doubletap gesture
-        mc.on("doubletap", function (event){tap(event)});
-
-        // Get the textelement that should "listen" to touch events
-      var element = document.getElementById("pressElement");
-
-      // Init Hammer
-      var hammertime = Hammer(element);
-
-      // Show tooltip when press is active on our html element that listens to "press"
-      hammertime.on("press", function(event) {
-        element = document.getElementById("tooltip").style.opacity="1";
-      });
-
-      // hide tooltip when releasing
-      hammertime.on("pressup", function(event) {
-        element = document.getElementById("tooltip").style.opacity="0";
-      });
-      }
-
-      // Swipe functionality
-      var swipepage=0;
-        function showSwipePage(pageidin,animin,pageidout,animout,page)
-        {
-            swipepage=page;  
-            document.getElementById(pageidin).style.animation=animin+" 1s ease-in-out 0s 1 forwards";
-            document.getElementById(pageidout).style.animation=animout+" 1s ease-in-out 0s 1 forwards";
-        }
-    
-        function swipe(direction)
-        {
-            if(swipepage==0){
-                if(direction==1){
-                    showSwipePage('page2','inright','page1','outleft',1);
-                }else{
-                    showSwipePage('page1','outright','page3','inleft',2);    
-                }
-            }else if(swipepage==1){
-                if(direction==1){
-                    showSwipePage('page3','inright','page2','outleft',2);
-                }else{
-                    showSwipePage('page2','outright','page1','inleft',0);
-                }
-            }else if(swipepage==2){
-                if(direction==1){
-                    showSwipePage('page1','inright','page3','outleft',0);
-                }else{
-                    showSwipePage('page3','outright','page2','inleft',1);    
-                }
-            }
-        }
- 
-        function initHammer(){
-            var element = document.getElementById("karusell");
-            var hammertime = Hammer(element);
-            hammertime.on("swiperight", function(event) { swipe(-1) });    
-            hammertime.on("swipeleft", function(event) { swipe(1) });    
-        }
-
-    </script>
 </head>
 
     <!-- ########################################################################--------HTML body starts--------######################################################################## -->
@@ -252,24 +138,24 @@
           <blockquote class="blockquote">
             <p class="mb-0">
               <br>
-Gustaf Fröding, född 22 augusti 1860 på Alsters herrgård i Karlstads socken, Värmlands län, död 8 februari 1911 i Stockholm, var en svensk författare, journalist och poet. En av hans mest välkända diktsamlingar är Stänk och flikar från 1896 som bland annat innehåller dikten En morgondröm vilken fick honom åtalad men friad. Han är även känd för att ha publicerat ett antal dikter på värmländsk dialekt. Han tillbringade långa tider på olika vårdinstitutioner på grund av sin psykiska ohälsa, men vad han faktiskt hade för diagnos är mycket omdiskuterat. Han avled till följd av sin alkoholism och diabetes.
+    Gustaf Fröding, född 22 augusti 1860 på Alsters herrgård i Karlstads socken, Värmlands län, död 8 februari 1911 i Stockholm, var en svensk författare, journalist och poet. En av hans mest välkända diktsamlingar är Stänk och flikar från 1896 som bland annat innehåller dikten En morgondröm vilken fick honom åtalad men friad. Han är även känd för att ha publicerat ett antal dikter på värmländsk dialekt. Han tillbringade långa tider på olika vårdinstitutioner på grund av sin psykiska ohälsa, men vad han faktiskt hade för diagnos är mycket omdiskuterat. Han avled till följd av sin alkoholism och diabetes.
             </p>
             <br>
             <p class="mb-0">
-Fröding blev efterhand mer och mer reguljär medarbetare i Karlstadstidningen,
-där han 1886 fick fast anställning som litteraturanmälare, kåsör och referent.
-Med undantag av de perioder, då han på grund av tilltagande nervsjuklighet
-måste söka vård, tillhörde Fröding Karlstadstidningens redaktion till 1896.
-År 1891 utgav han, med mycken tvekan, sin första diktsamling Guitarr och
-dragharmonika, som vann en snabb och vidsträckt popularitet. Den följdes 1894
-av Nya dikter och 1896 av Stänk och flikar. Till dessa kom ytterligare ett par
-små dikthäften, innan sinnessjukdomen 1899 bröt ut. Han blev, tack vare
-omsorgsfull vård, småningom bättre, men fullt återställd blev han aldrig. Han
-var och förblev en bruten man, och som sådan framlevde han tillbakadraget sina
-sista år på lantstället Gröndal ute på Djurgården i Stockholm. Han avled i
-Stockholm den 8 februari 1911. Före sin bortgång år 1911 nominerades han som en
-av kandidaterna till nobelpriset i litteratur, men då han gick bort under det
-året miste han möjligheten att erhålla priset.
+    Fröding blev efterhand mer och mer reguljär medarbetare i Karlstadstidningen,
+    där han 1886 fick fast anställning som litteraturanmälare, kåsör och referent.
+    Med undantag av de perioder, då han på grund av tilltagande nervsjuklighet
+    måste söka vård, tillhörde Fröding Karlstadstidningens redaktion till 1896.
+    År 1891 utgav han, med mycken tvekan, sin första diktsamling Guitarr och
+    dragharmonika, som vann en snabb och vidsträckt popularitet. Den följdes 1894
+    av Nya dikter och 1896 av Stänk och flikar. Till dessa kom ytterligare ett par
+    små dikthäften, innan sinnessjukdomen 1899 bröt ut. Han blev, tack vare
+    omsorgsfull vård, småningom bättre, men fullt återställd blev han aldrig. Han
+    var och förblev en bruten man, och som sådan framlevde han tillbakadraget sina
+    sista år på lantstället Gröndal ute på Djurgården i Stockholm. Han avled i
+    Stockholm den 8 februari 1911. Före sin bortgång år 1911 nominerades han som en
+    av kandidaterna till nobelpriset i litteratur, men då han gick bort under det
+    året miste han möjligheten att erhålla priset.
             </p>
             <br>
             <footer class="blockquote-footer"><cite title="Source Title">Text från <a href="https://sv.wikipedia.org/wiki/Gustaf_Fr%C3%B6ding">wikipedia</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a></cite></footer>
@@ -281,10 +167,10 @@ av kandidaterna till nobelpriset i litteratur, men då han gick bort under det
           <br>
           <blockquote class="blockquote">
             <p class="mb-0">
-"Det är skimmer i molnen och glitter i sjön,
-det är ljus över stränder och näs
-och omkring står den härliga skogen grön
-bakom ängarnas gungande gräs."
+    "Det är skimmer i molnen och glitter i sjön,
+    det är ljus över stränder och näs
+    och omkring står den härliga skogen grön
+    bakom ängarnas gungande gräs."
             </p>
             <br>
             <footer class="blockquote-footer"><cite title="Source Title">Gustaf Fröding - Stänk och flikar. (Dikter) 1896</cite></footer>
@@ -450,7 +336,7 @@ bakom ängarnas gungande gräs."
       <div class="row">
         <div class="col-sm">
           <p class="lead">
-Sidan är tyvärr inte fullständig. Så under tiden den utvecklas har du en mängd av valmöjligheter att välja på. Diska till exempel.
+    Sidan är tyvärr inte fullständig. Så under tiden den utvecklas har du en mängd av valmöjligheter att välja på. Diska till exempel.
           </p>
         </div>
       </div>
@@ -603,28 +489,28 @@ Sidan är tyvärr inte fullständig. Så under tiden den utvecklas har du en mä
       <div class="row">
         <div class="col-sm">
           <p class="font-italic text-truncate" id="vars1">
-"Det är skimmer i molnen och glitter i sjön,
-det är ljus över stränder och näs
-och omkring står den härliga skogen grön
-bakom ängarnas gungande gräs.
+    "Det är skimmer i molnen och glitter i sjön,
+    det är ljus över stränder och näs
+    och omkring står den härliga skogen grön
+    bakom ängarnas gungande gräs.
           </p>
           <p class="font-italic text-truncate" id="vars2">
-Och med sommar och skönhet och skogsvindsackord
-står min hembygd och hälsar mig glad,
-var mig hälsad! - Men var är min faders gård,
-det är tomt bakom lönnarnas rad.
+    Och med sommar och skönhet och skogsvindsackord
+    står min hembygd och hälsar mig glad,
+    var mig hälsad! - Men var är min faders gård,
+    det är tomt bakom lönnarnas rad.
           </p>
           <p class="font-italic text-truncate" id="vars3">
-Det är tomt, det är bränt, det är härjat och kalt,
-där den låg, ligger berghällen bar,
-men däröver går minnet med vinden svalt,
-och det minnet är allt som är kvar.
+    Det är tomt, det är bränt, det är härjat och kalt,
+    där den låg, ligger berghällen bar,
+    men däröver går minnet med vinden svalt,
+    och det minnet är allt som är kvar.
           </p>
           <p class="font-italic text-truncate" id="vars4">
-Och det är som jag såge en gavel stå vit
-och ett fönster stå öppet däri,
-som piano det ljöd och en munter bit
-av en visa med käck melodi."
+    Och det är som jag såge en gavel stå vit
+    och ett fönster stå öppet däri,
+    som piano det ljöd och en munter bit
+    av en visa med käck melodi."
           </p>
           <br>
           <br>
@@ -690,7 +576,7 @@ av en visa med käck melodi."
       <div class="row">
         <div class="col-sm">
           <p class="lead">
-Sidan är tyvärr inte fullständig. Så under tiden den utvecklas har du en mängd av valmöjligheter att välja på. Diska till exempel.
+    Sidan är tyvärr inte fullständig. Så under tiden den utvecklas har du en mängd av valmöjligheter att välja på. Diska till exempel.
           </p>
         </div>
       </div>
@@ -751,7 +637,7 @@ Sidan är tyvärr inte fullständig. Så under tiden den utvecklas har du en mä
       <div class="row">
         <div class="col-sm">
           <p class="lead">
-Sidan är tyvärr inte fullständig. Så under tiden den utvecklas har du en mängd av valmöjligheter att välja på. Diska till exempel.
+    Sidan är tyvärr inte fullständig. Så under tiden den utvecklas har du en mängd av valmöjligheter att välja på. Diska till exempel.
           </p>
         </div>
       </div>
@@ -812,7 +698,7 @@ Sidan är tyvärr inte fullständig. Så under tiden den utvecklas har du en mä
       <div class="row">
         <div class="col-sm">
           <p class="lead">
-Sidan är tyvärr inte fullständig. Så under tiden den utvecklas har du en mängd av valmöjligheter att välja på. Diska till exempel.
+    Sidan är tyvärr inte fullständig. Så under tiden den utvecklas har du en mängd av valmöjligheter att välja på. Diska till exempel.
           </p>
         </div>
       </div>
@@ -873,7 +759,7 @@ Sidan är tyvärr inte fullständig. Så under tiden den utvecklas har du en mä
       <div class="row">
         <div class="col-sm">
           <p class="lead">
-Sidan är tyvärr inte fullständig. Så under tiden den utvecklas har du en mängd av valmöjligheter att välja på. Diska till exempel.
+    Sidan är tyvärr inte fullständig. Så under tiden den utvecklas har du en mängd av valmöjligheter att välja på. Diska till exempel.
           </p>
         </div>
       </div>
@@ -935,7 +821,7 @@ Sidan är tyvärr inte fullständig. Så under tiden den utvecklas har du en mä
             </div>
             <br>
             <h6>
-FrödingAppen är ett resultat av kursen mobilapplikationsdesign och är producerad av mig Fredrik Lundgren.
+    FrödingAppen är ett resultat av kursen mobilapplikationsdesign och är producerad av mig Fredrik Lundgren.
             </h6>
           </p>
         </div>
@@ -1046,5 +932,120 @@ FrödingAppen är ett resultat av kursen mobilapplikationsdesign och är produce
       </div>
     </div>
   </div>
+
+  <!-- ########################################################################--------Liberary imports--------######################################################################## -->
+
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+
+  <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+  <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+
+
+  <!-- ########################################################################--------JavaScript functions--------######################################################################## -->
+  <script>
+      // Help function that shows page p and hides all other pages
+    function showPage(p) {
+        // Step 1 - Hide all pages
+        pageArr = document.getElementsByClassName("page");
+        for (let i = 0; i < pageArr.length; i++) {
+            let page = pageArr[i];
+            page.style.display = "none";
+        }
+        // Step 2 - Show the selected page
+        document.getElementById("page" + p).style.display = "block";
+    }
+
+    $(function () {
+    $('[data-toggle="popover"]').popover()
+    })
+
+    function tap(event) {
+        if (event.target.classList.contains("text-truncate")){
+          event.target.classList.remove("text-truncate");
+        }
+        else {
+        event.target.classList.add("text-truncate");
+      }
+    }
+    function init() {
+
+      // Get area where we listen for touch events
+      var toucharea = document.getElementById("stank");
+      // Init Hammer
+      var mc = new Hammer(toucharea);
+
+      // Listen for doubletap gesture
+      mc.on("doubletap", function (event){tap(event)});
+
+      // Get the textelement that should "listen" to touch events
+      var element = document.getElementById("pressElement");
+
+      // Init Hammer
+      var hammertime = Hammer(element);
+
+      // Show tooltip when press is active on our html element that listens to "press"
+      hammertime.on("press", function(event) {
+        element = document.getElementById("tooltip").style.opacity="1";
+      });
+
+      // hide tooltip when releasing
+      hammertime.on("pressup", function(event) {
+        element = document.getElementById("tooltip").style.opacity="0";
+      });
+    }
+
+    // Swipe functionality
+    var swipepage=0;
+    function showSwipePage(pageidin,animin,pageidout,animout,page)
+    {
+        swipepage=page;  
+        document.getElementById(pageidin).style.animation=animin+" 1s ease-in-out 0s 1 forwards";
+        document.getElementById(pageidout).style.animation=animout+" 1s ease-in-out 0s 1 forwards";
+    }
+
+    function swipe(direction)
+    {
+        if(swipepage==0){
+            if(direction==1){
+                showSwipePage('page2','inright','page1','outleft',1);
+            }else{
+                showSwipePage('page1','outright','page3','inleft',2);    
+            }
+        }else if(swipepage==1){
+            if(direction==1){
+                showSwipePage('page3','inright','page2','outleft',2);
+            }else{
+                showSwipePage('page2','outright','page1','inleft',0);
+            }
+        }else if(swipepage==2){
+            if(direction==1){
+                showSwipePage('page1','inright','page3','outleft',0);
+            }else{
+                showSwipePage('page3','outright','page2','inleft',1);    
+            }
+        }
+    }
+
+    function initHammer(){
+        var element = document.getElementById("karusell");
+        var hammertime = Hammer(element);
+        hammertime.on("swiperight", function(event) { swipe(-1) });    
+        hammertime.on("swipeleft", function(event) { swipe(1) });    
+    }
+
+  </script>
 </body>
 </html>
