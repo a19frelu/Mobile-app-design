@@ -1,67 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>FrödingAppenTouch</title>
-    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FrödingAppenTouch</title>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- ########################################################################--------CSS styling--------######################################################################## -->
-    <style>
-      .button {
-        background-color: #FED;
-        color: #000;
-        width: 100px;
-        height: 30px;
-        line-height: 30px;
-        border-radius: 10px;
-        text-align: center;
-      }
+  <!-- ########################################################################--------CSS styling--------######################################################################## -->
+  <style>
+    .button {
+      background-color: #FED;
+      color: #000;
+      width: 100px;
+      height: 30px;
+      line-height: 30px;
+      border-radius: 10px;
+      text-align: center;
+    }
 
-      .tooltipAnchor {
-        position:absolute;
-      }
+    .tooltipAnchor {
+      position:absolute;
+    }
 
-      .tooltip { /* hide and position tooltip */
-        position:absolute;
-        bottom:20px;
-        left:0px;
-        width:200px;
-        height:85px;
-        background-color:#3e3e40;
-        color:white;
-        border-radius:3px;
-        opacity:0;
-        overflow: hidden;
-        padding:2px;
-      }
+    .tooltip { /* hide and position tooltip */
+      position:absolute;
+      bottom:20px;
+      left:0px;
+      width:200px;
+      height:85px;
+      background-color:#3e3e40;
+      color:white;
+      border-radius:3px;
+      opacity:0;
+      overflow: hidden;
+      padding:2px;
+    }
 
-      #pic1 {
-        background:#fed;
-        left:0%;
-      }
-      #pic2 {
-        background:#def;
-      }
-      #pic3 {
-        background:#fde;
-      }
+    #pic1 {
+      background:#fed;
+      left:0%;
+    }
+    #pic2 {
+      background:#def;
+    }
+    #pic3 {
+      background:#fde;
+    }
 
-      h1.display-3 {
-        font-size: 40px;
-        font-weight: 400;
-        margin-top: 10px;
-      }
+    h1.display-3 {
+      font-size: 40px;
+      font-weight: 400;
+      margin-top: 10px;
+    }
 
-      @keyframes inleft {0% { left: -100%; } 100% { left: 0%;} }
-      @keyframes inright {0% { left: 100%; } 100% { left: 0%;} }
-      @keyframes outleft {0% { left: 0%; } 100% { left: -100%;} }
-      @keyframes outright {0% { left: 0%; } 100% { left: 100%;} }
-    </style>
+    @keyframes inleft {0% { left: -100%; } 100% { left: 0%;} }
+    @keyframes inright {0% { left: 100%; } 100% { left: 0%;} }
+    @keyframes outleft {0% { left: 0%; } 100% { left: -100%;} }
+    @keyframes outright {0% { left: 0%; } 100% { left: 100%;} }
+  </style>
+
+  <!-- ########################################################################--------Liberary imports--------######################################################################## -->
+
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+
+  <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+  <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+
+
+  <!-- ########################################################################--------JavaScript functions--------######################################################################## -->
+  <script>
+      // Help function that shows page p and hides all other pages
+    function showPage(p) {
+        // Step 1 - Hide all pages
+        pageArr = document.getElementsByClassName("page");
+        for (let i = 0; i < pageArr.length; i++) {
+            let page = pageArr[i];
+            page.style.display = "none";
+        }
+        // Step 2 - Show the selected page
+        document.getElementById("page" + p).style.display = "block";
+    }
+
+    $(function () {
+    $('[data-toggle="popover"]').popover()
+    })
+
+    function tap(event) {
+        if (event.target.classList.contains("text-truncate")){
+          event.target.classList.remove("text-truncate");
+        }
+        else {
+        event.target.classList.add("text-truncate");
+      }
+    }
+    function init() {
+
+      showPage(11);
+      initHammer();
+
+      // Get area where we listen for touch events
+      var toucharea = document.getElementById("stank");
+      // Init Hammer
+      var mc = new Hammer(toucharea);
+
+      // Listen for doubletap gesture
+      mc.on("doubletap", function (event){tap(event)});
+
+      // Get the textelement that should "listen" to touch events
+      var element = document.getElementById("pressElement");
+
+      // Init Hammer
+      var hammertime = Hammer(element);
+
+      // Show tooltip when press is active on our html element that listens to "press"
+      hammertime.on("press", function(event) {
+        element = document.getElementById("tooltip").style.opacity="1";
+      });
+
+      // hide tooltip when releasing
+      hammertime.on("pressup", function(event) {
+        element = document.getElementById("tooltip").style.opacity="0";
+      });
+      console.log("init har körts")
+    }
+
+    // Swipe functionality
+    var swipepage=0;
+    function showSwipePage(pageidin,animin,pageidout,animout,page)
+    {
+        swipepage=page;  
+        document.getElementById(pageidin).style.animation=animin+" 1s ease-in-out 0s 1 forwards";
+        document.getElementById(pageidout).style.animation=animout+" 1s ease-in-out 0s 1 forwards";
+    }
+
+    function swipe(direction)
+    {
+        if(swipepage==0){
+            if(direction==1){
+                showSwipePage('page2','inright','page1','outleft',1);
+            }else{
+                showSwipePage('page1','outright','page3','inleft',2);    
+            }
+        }else if(swipepage==1){
+            if(direction==1){
+                showSwipePage('page3','inright','page2','outleft',2);
+            }else{
+                showSwipePage('page2','outright','page1','inleft',0);
+            }
+        }else if(swipepage==2){
+            if(direction==1){
+                showSwipePage('page1','inright','page3','outleft',0);
+            }else{
+                showSwipePage('page3','outright','page2','inleft',1);    
+            }
+        }
+    }
+
+    function initHammer(){
+        var element = document.getElementById("karusell");
+        var hammertime = Hammer(element);
+        hammertime.on("swiperight", function(event) { swipe(-1) });
+        hammertime.on("swipeleft", function(event) { swipe(1) });
+        console.log("initHammer har körts")
+    }
+
+  </script>
 
 </head>
 
     <!-- ########################################################################--------HTML body starts--------######################################################################## -->
 
-<body onload="showPage(11); init(); initHammer();">
+<body onload="init();">
   <div id="page1" class="page">
     <nav class="navbar navbar-dark bg-dark">
       <a class="navbar-brand" onclick="showPage(1);">FrödingAppenTouch</a>
@@ -933,119 +1053,5 @@
     </div>
   </div>
 
-  <!-- ########################################################################--------Liberary imports--------######################################################################## -->
-
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
-
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-  </script>
-
-  <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
-  <script src="https://hammerjs.github.io/dist/hammer.js"></script>
-
-
-  <!-- ########################################################################--------JavaScript functions--------######################################################################## -->
-  <script>
-      // Help function that shows page p and hides all other pages
-    function showPage(p) {
-        // Step 1 - Hide all pages
-        pageArr = document.getElementsByClassName("page");
-        for (let i = 0; i < pageArr.length; i++) {
-            let page = pageArr[i];
-            page.style.display = "none";
-        }
-        // Step 2 - Show the selected page
-        document.getElementById("page" + p).style.display = "block";
-    }
-
-    $(function () {
-    $('[data-toggle="popover"]').popover()
-    })
-
-    function tap(event) {
-        if (event.target.classList.contains("text-truncate")){
-          event.target.classList.remove("text-truncate");
-        }
-        else {
-        event.target.classList.add("text-truncate");
-      }
-    }
-    function init() {
-
-      // Get area where we listen for touch events
-      var toucharea = document.getElementById("stank");
-      // Init Hammer
-      var mc = new Hammer(toucharea);
-
-      // Listen for doubletap gesture
-      mc.on("doubletap", function (event){tap(event)});
-
-      // Get the textelement that should "listen" to touch events
-      var element = document.getElementById("pressElement");
-
-      // Init Hammer
-      var hammertime = Hammer(element);
-
-      // Show tooltip when press is active on our html element that listens to "press"
-      hammertime.on("press", function(event) {
-        element = document.getElementById("tooltip").style.opacity="1";
-      });
-
-      // hide tooltip when releasing
-      hammertime.on("pressup", function(event) {
-        element = document.getElementById("tooltip").style.opacity="0";
-      });
-    }
-
-    // Swipe functionality
-    var swipepage=0;
-    function showSwipePage(pageidin,animin,pageidout,animout,page)
-    {
-        swipepage=page;  
-        document.getElementById(pageidin).style.animation=animin+" 1s ease-in-out 0s 1 forwards";
-        document.getElementById(pageidout).style.animation=animout+" 1s ease-in-out 0s 1 forwards";
-    }
-
-    function swipe(direction)
-    {
-        if(swipepage==0){
-            if(direction==1){
-                showSwipePage('page2','inright','page1','outleft',1);
-            }else{
-                showSwipePage('page1','outright','page3','inleft',2);    
-            }
-        }else if(swipepage==1){
-            if(direction==1){
-                showSwipePage('page3','inright','page2','outleft',2);
-            }else{
-                showSwipePage('page2','outright','page1','inleft',0);
-            }
-        }else if(swipepage==2){
-            if(direction==1){
-                showSwipePage('page1','inright','page3','outleft',0);
-            }else{
-                showSwipePage('page3','outright','page2','inleft',1);    
-            }
-        }
-    }
-
-    function initHammer(){
-        var element = document.getElementById("karusell");
-        var hammertime = Hammer(element);
-        hammertime.on("swiperight", function(event) { swipe(-1) });    
-        hammertime.on("swipeleft", function(event) { swipe(1) });    
-    }
-
-  </script>
 </body>
 </html>
